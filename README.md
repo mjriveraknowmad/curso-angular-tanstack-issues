@@ -1,27 +1,54 @@
-# GithubIssues
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+# Angular + TanStack Query — Proyecto del curso
 
-## Development server
+Proyecto de ejemplo creado durante el curso "Angular - Pro: Siguiente Nivel" (Fernando Herrera) para practicar Angular y TanStack Query (React Query para Angular).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Estado:** proyecto didáctico, no listo para producción sin configurar variables de entorno.
 
-## Code scaffolding
+**Repositorio:** contenido local del curso, código fuente en `src/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Prerequisitos**
+- Node.js (16+ recomendado) y npm o pnpm
 
-## Build
+**Instalación**
+```bash
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+**Desarrollo**
+```bash
+npm start
+```
 
-## Running unit tests
+**Tests**
+```bash
+npm test
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Estructura relevante**
+- Código principal: `src/app/`
+- Entornos: `src/environments/`
 
-## Running end-to-end tests
+Configuración de entornos (IMPORTANTE antes de desplegar)
+- Renombrar los archivos de ejemplo y editarlos con tus secretos:
+	- [src/environments/environment.development.example.ts](src/environments/environment.development.example.ts) → [src/environments/environment.development.ts](src/environments/environment.development.ts)
+	- [src/environments/environment.example.ts](src/environments/environment.example.ts) → [src/environments/environment.ts](src/environments/environment.ts)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Dentro de los archivos resultantes, añade el token de GitHub y cualquier otra clave necesaria. Ejemplo de contenido mínimo:
+```ts
+export const environment = {
+	production: false,
+	githubToken: 'TU_TOKEN_DE_GITHUB_AQUI'
+}
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Build / Producción**
+- Antes de ejecutar `npm run build` o desplegar, asegúrate de haber creado y configurado `src/environments/environment.ts` y `src/environments/environment.development.ts` con los tokens correctos.
+
+**Descripción breve del flujo**
+- El proyecto consume la API pública de GitHub para listar issues y etiquetas; por eso necesita un token para evitar límites de tasa y acceder a endpoints protegidos.
+- La integración con TanStack Query facilita la gestión del cache y las peticiones en los servicios de `src/app/modules/issues/services/`.
+
+**Recursos**
+- Curso: "Angular - Pro: Siguiente Nivel" — Fernando Herrera (Udemy)
